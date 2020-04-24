@@ -4,10 +4,14 @@
 
 import sys
 from cpu import *
+import os
 
 cpu = CPU()
-program = input()
-# while program != 'q':
+print('Type the name of the program you would like to run:')
+programs = os.listdir('examples/')
+for program in programs:
+    program = program.split('.')[0]
+    print('>> ', program)
+program = input('Program: ')
 cpu.load(program)
 cpu.run()
-# program = input()
